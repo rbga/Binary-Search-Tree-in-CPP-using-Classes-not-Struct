@@ -1,3 +1,10 @@
+//Coded By
+//Ganeshaanand (Rishi) Balasubramanian
+//@_rbga_
+//Master of Applied Sciences, Electrical and Computer Engineering
+//Dalhosuie University, Halifax, Canada 2022
+
+
 #include <iostream>
 using namespace std;
 
