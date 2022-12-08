@@ -1,7 +1,7 @@
 # Binary-Search-Tree-in-C-
 Implementation of Recursive Binary Search Tree in C++ - Basics
 
-A simple Binary Search Tree with an Insert and Inorder Traversal Function
+A simple Binary Search Tree with an Insert, Remove and Inorder Traversal Function
 
 Implementation in C++
 
@@ -20,3 +20,6 @@ Current Functions
 4. Min
 5. Max
 6. Inorder
+7. Remove
+
+More functions for Binary Search Tree will be updated as it goes. Stay Tuned
