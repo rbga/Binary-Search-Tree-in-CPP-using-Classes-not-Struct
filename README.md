@@ -1,5 +1,5 @@
 # Binary-Search-Tree-in-C-
-Implementation of Binary Search Tree in C++ - Basics
+Implementation of Recursive Binary Search Tree in C++ - Basics
 
 A simple Binary Search Tree with an Insert and Inorder Traversal Function
 
@@ -12,3 +12,11 @@ Pre-requisites
 2. Understanding Of Class or struct
 3. Understanding of memory allocation for healp (Malloc, new, @)
 4. Understanding of pointers
+
+Current Functions
+1. Constructor
+2. Parametered Constructor
+3. Insert
+4. Min
+5. Max
+6. Inorder
