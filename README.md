@@ -1,4 +1,4 @@
-# Binary-Search-Tree-in-C-
+# Binary-Search-Tree-in-C++
 Implementation of Recursive Binary Search Tree in C++ using CLASS and not STRUCT - Basics
 
 A simple Binary Search Tree with an Insert, Remove and Inorder Traversal Function
