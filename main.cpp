@@ -1,8 +1,7 @@
-
 #include <iostream>
 using namespace std;
 
-
+///////////////////////////////////////////////////////////////////////////
 
 class BSTN      //Create Binary Search Tree Node (BSTN) Class
 {
@@ -17,9 +16,10 @@ class BSTN      //Create Binary Search Tree Node (BSTN) Class
 	    void orderit(BSTN *);       //Inorder traversal Function resulting in ordered list of the node Declaration
 	    int min(BSTN *);            //Int Function for Minimum Value function Declaration
 	    int max(BSTN *);            //Int Function for Maximum Value function Declaration
+	    BSTN * rem(BSTN *, int);    //Remove Function Declaration
 };
 
-
+///////////////////////////////////////////////////////////////////////////
 
 BSTN :: BSTN()  	//Constructor definition
 	  : key(0)  	//Constructor key pointer
@@ -28,7 +28,7 @@ BSTN :: BSTN()  	//Constructor definition
 {
 }
 
-
+///////////////////////////////////////////////////////////////////////////
 
 BSTN :: BSTN (int val)   	//Parametered Constructor definition
 {
@@ -36,7 +36,7 @@ BSTN :: BSTN (int val)   	//Parametered Constructor definition
 	L = R = NULL;       	//Set L and R to Null
 }
 
-
+///////////////////////////////////////////////////////////////////////////
 
 BSTN * BSTN :: ins(BSTN * root, int val)    		//Insert Function definition
 {
@@ -59,7 +59,7 @@ BSTN * BSTN :: ins(BSTN * root, int val)    		//Insert Function definition
 	return root;
 }
 
-
+///////////////////////////////////////////////////////////////////////////
 
 void BSTN :: orderit(BSTN * root)           			//Inorder function definition
 {
@@ -68,16 +68,12 @@ void BSTN :: orderit(BSTN * root)           			//Inorder function definition
 		return;
 	}
 	
-	
-	
 	orderit(root -> L);                                 	//Recursively Call orderit for L leaves
-	
-	cout << "\n Element is = " << root -> key << endl;  	//Print Key Value
-	
+	cout << root -> key << " ";  				//Print Key Value	
 	orderit(root -> R);                                 	//Recursively Call orderit for R leaves
 }
 
-
+///////////////////////////////////////////////////////////////////////////
 
 int BSTN :: min(BSTN * root)                //Minimum Function definition
 {
@@ -92,13 +88,13 @@ int BSTN :: min(BSTN * root)                //Minimum Function definition
     }    
    
     return min(root -> L);                  //(else) recursively call Left of Root in MIN function
-    
 }
 
-
+///////////////////////////////////////////////////////////////////////////
 
 int BSTN :: max(BSTN * root)                //Minimum Function definition
 {
+    int * temp;
     if (!root)
     {
         cout << "\n Wrong Root" << endl;    //Print Wrong Root
@@ -112,9 +108,55 @@ int BSTN :: max(BSTN * root)                //Minimum Function definition
         return max(root -> R);              //(else) recursively call Right of Root in MAX function
 }
 
+///////////////////////////////////////////////////////////////////////////
+
+BSTN * BSTN :: rem(BSTN * root, int val)                //Remove function definition
+{
+    if (root == NULL)                                   //Failure case
+    {
+        cout << "\n Wrong Root!!!" << endl;;
+    }
+    
+    if (val < root -> key)                              //If value to delete is less than root
+    {
+        root -> L = rem(root -> L, val);                //Recursively keep calling REMOVE for Left roots
+    }
+    else if (val > root -> key)                         //If value to delete is greater than root
+    {
+        root -> R = rem(root -> R, val);                //Recursively keep calling REMOVE for Right roots
+    }
+    else                                                //ELSE if key is root
+    {
+        if (root -> L == NULL && root -> R == NULL)     //If both sides child's are empty
+        {
+            return NULL;
+        }
+        else if (root -> L == NULL)                     //If Left Child alone is 1 or empty
+        {
+            BSTN * temp = root -> R;                    //Create temp class pointer object and store right root
+            delete root;                                //Delete right root
+            return temp;                                //Return stored root in temp
+        }
+        else if (root -> R == NULL)                     //If Right Child alone is 1 or empty
+        {
+            BSTN * temp = root -> L;                    //Create temp class pointer object and store left root
+            delete root;                                //Delete left root
+            return temp;                                //Return stored root in temp
+        }
+        
+        int minval = min(root -> R);                       //Else find MIN of right root
+        root -> key = minval;                              //Copy it to root 
+        root -> R = rem(root -> R, minval);                //And recursively call REMOVE
+    }
+    return root;
+}
 
 
-// Driver code
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// Main code
 int main()
 {
 	BSTN b;                                            //Create Class Object BSTN
@@ -126,11 +168,16 @@ int main()
 	    b.ins(root, i);
 	}
 
-    	cout << "\n The In Ordered Traversal of the current Binary Tree" << endl;
+    	cout << "\nThe In Ordered Traversal of the current Binary Tree" << endl;
 	b.orderit(root);    //Calling orderit
 	                    
 	                    //Max and Min function
-	cout << "\n Max of Nodes using Max Recursive function is " << b.max(root) << endl;
-	cout << "\n Min of Nodes using Min Recursive function is " << b.min(root) << endl;
+	cout << "\n\nMax of Nodes using Max Recursive function is " << b.max(root);
+	cout << "\nMin of Nodes using Min Recursive function is " << b.min(root) << endl;
+	                    
+	                    //Call remove and check
+	cout << "\nRemoving Value 12" << endl;
+	root = b.rem(root, 12);
+	b.orderit(root);
 	return 0;
 }
