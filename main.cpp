@@ -6,6 +6,7 @@
 
 
 #include <iostream>
+#include <stdio.h>
 using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////
@@ -24,6 +25,7 @@ class BSTN      //Create Binary Search Tree Node (BSTN) Class
 	    int min(BSTN *);            //Int Function for Minimum Value function Declaration
 	    int max(BSTN *);            //Int Function for Maximum Value function Declaration
 	    BSTN * rem(BSTN *, int);    //Remove Function Declaration
+	    BSTN * Hunt(BSTN *, int);   //Search Function Declaration
 };
 
 ///////////////////////////////////////////////////////////////////////////
@@ -158,6 +160,24 @@ BSTN * BSTN :: rem(BSTN * root, int val)                //Remove function defini
     return root;
 }
 
+///////////////////////////////////////////////////////////////////////////
+
+BSTN * BSTN :: Hunt(BSTN * root, int val)           //Search Function (Hunt) definition
+{
+    if (root == NULL || root -> key == val)         //If root is NULL or key equals value
+    {
+        return root;
+    }
+    
+    if (root -> key < val)                          //If value greater than root
+    {
+        return Hunt(root -> R, val);                //Recursively search Right
+    }
+    
+    return Hunt(root -> L, val);                    //Else recursively search left
+}
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -174,8 +194,8 @@ int main()
 	{
 	    b.ins(root, i);
 	}
-
-    	cout << "\nThe In Ordered Traversal of the current Binary Tree" << endl;
+	
+    cout << "\nThe In Ordered Traversal of the current Binary Tree" << endl;
 	b.orderit(root);    //Calling orderit
 	                    
 	                    //Max and Min function
@@ -186,5 +206,13 @@ int main()
 	cout << "\nRemoving Value 12" << endl;
 	root = b.rem(root, 12);
 	b.orderit(root);
+	
+	cout << "\n\nSearch Operation Using Hunt()" << endl;
+	
+	for (int j = 1; j<=20; j++)
+	{
+	    cout << "\n HUNT " << j << " = " << b.Hunt(root, j);        //Display all address of every node using Hunt
+	}
+	
 	return 0;
 }
