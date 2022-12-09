@@ -10,7 +10,7 @@ Each line of code properly commented to help newbies in understanding how Binary
 Pre-requisites
 1. Basic Knowledge of C/C++
 2. Understanding Of Class or struct
-3. Understanding of memory allocation for healp (Malloc, new, @)
+3. Understanding of memory allocation for heap (Malloc, new, @)
 4. Understanding of pointers
 
 Current Functions
@@ -37,7 +37,7 @@ To begin, you create a BSTN object 'b'.
 Then give some root value to begin with.
 Then continuosly add leaf values in a for loop or something.
 Now we got our full tree.
-Find MAximum
+Find Maximum 
 Find Minimum
 Remove Value
 Search Value
