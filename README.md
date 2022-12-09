@@ -17,10 +17,12 @@ Current Functions
 1. Constructor
 2. Parametered Constructor
 3. Insert
-4. Min
-5. Max
-6. Inorder
+4. Minimum of Tree
+5. Maximum of Tree
+6. Inorder Traversal
 7. Remove
 8. Seach (Hunt)
+9. Pre-Order Traversal
+10. Post-Order Traversal
 
 More functions for Binary Search Tree will be updated as it goes. Stay Tuned
