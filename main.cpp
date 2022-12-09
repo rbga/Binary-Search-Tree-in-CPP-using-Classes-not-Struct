@@ -26,6 +26,8 @@ class BSTN      //Create Binary Search Tree Node (BSTN) Class
 	    int max(BSTN *);            //Int Function for Maximum Value function Declaration
 	    BSTN * rem(BSTN *, int);    //Remove Function Declaration
 	    BSTN * Hunt(BSTN *, int);   //Search Function Declaration
+	    void preord(BSTN *);        //Pre Order Function Declaration
+	    void postord(BSTN *);       //Post Order Function Declaration
 };
 
 ///////////////////////////////////////////////////////////////////////////
@@ -177,6 +179,35 @@ BSTN * BSTN :: Hunt(BSTN * root, int val)           //Search Function (Hunt) def
     return Hunt(root -> L, val);                    //Else recursively search left
 }
 
+///////////////////////////////////////////////////////////////////////////
+
+void BSTN :: preord(BSTN * root)           			//Pre Order function definition
+{
+	if (!root)                              		//End if no root
+	{
+		return;
+	}
+	
+	cout << root -> key << " ";  				//Print Key Value
+	preord(root -> L);                                 	//Recursively Call preord for L leaves
+	preord(root -> R);                                 	//Recursively Call preord for R leaves
+}
+
+///////////////////////////////////////////////////////////////////////////
+
+void BSTN :: postord(BSTN * root)           			//Post Order function definition
+{
+	if (!root)                              		//End if no root
+	{
+		return;
+	}
+	
+	postord(root -> L);                                 	//Recursively Call postord for L leaves
+	postord(root -> R);                                 	//Recursively Call postord for R leaves
+	cout << root -> key << " ";  				//Print Key Value
+    
+}
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -195,15 +226,15 @@ int main()
 	    b.ins(root, i);
 	}
 	
-    cout << "\nThe In Ordered Traversal of the current Binary Tree" << endl;
-	b.orderit(root);    //Calling orderit
+    	cout << "\nThe current Binary Tree" << endl;	   //Sorted Binary Tree
+	b.orderit(root);    
 	                    
-	                    //Max and Min function
-	cout << "\n\nMax of Nodes using Max Recursive function is " << b.max(root);
+	                    
+	cout << "\n\nMax of Nodes using Max Recursive function is " << b.max(root);	//Max and Min function
 	cout << "\nMin of Nodes using Min Recursive function is " << b.min(root) << endl;
 	                    
-	                    //Call remove and check
-	cout << "\nRemoving Value 12" << endl;
+	                    
+	cout << "\nRemoving Value 12" << endl;	//Call remove and check
 	root = b.rem(root, 12);
 	b.orderit(root);
 	
@@ -213,6 +244,15 @@ int main()
 	{
 	    cout << "\n HUNT " << j << " = " << b.Hunt(root, j);        //Display all address of every node using Hunt
 	}
+	
+	cout << "\n\nPre Order Traversal" << endl;			//Calling preord
+	b.preord(root);    
+	
+	cout << "\n\nPost Order Traversal" << endl; 			//Calling postord
+	b.postord(root);    
+	
+	cout << "\n\nIn Order Traversal" << endl;			//Calling orderit
+	b.orderit(root);    
 	
 	return 0;
 }
