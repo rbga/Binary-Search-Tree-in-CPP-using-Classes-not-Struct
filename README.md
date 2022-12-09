@@ -21,5 +21,6 @@ Current Functions
 5. Max
 6. Inorder
 7. Remove
+8. Seach (Hunt)
 
 More functions for Binary Search Tree will be updated as it goes. Stay Tuned
