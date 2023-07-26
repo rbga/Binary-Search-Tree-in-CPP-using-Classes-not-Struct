@@ -50,16 +50,17 @@ Feel free to clone, modify, and use this code for your own projects. Happy codin
 
 ## THE OUTPUT FOR ABOVE RUNS AS
 
-The current Binary Tree: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+The current Binary Tree: 
+``` 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 ```
 
 Max of Nodes using Max Recursive function is 20
 
 Min of Nodes using Min Recursive function is 1
 
 Removing Value: 12
-
+```
 1 2 3 4 5 6 7 8 9 10 11 13 14 15 16 17 18 19 20
-
+```
 Search Operation Using Hunt():
 
 - HUNT 1 = 0x558849c91eb0
@@ -83,8 +84,11 @@ Search Operation Using Hunt():
 - HUNT 19 = 0x558849c91ef0
 - HUNT 20 = 0x558849c91ed0
 
-Pre Order Traversal: 1 20 19 18 17 16 15 14 13 11 10 9 8 7 6 5 4 3 2
+Pre Order Traversal: 
+```1 20 19 18 17 16 15 14 13 11 10 9 8 7 6 5 4 3 2```
 
-Post Order Traversal: 2 3 4 5 6 7 8 9 10 11 13 14 15 16 17 18 19 20 1
+Post Order Traversal: 
+```2 3 4 5 6 7 8 9 10 11 13 14 15 16 17 18 19 20 1```
 
-In Order Traversal: 1 2 3 4 5 6 7 8 9 10 11 13 14 15 16 17 18 19 20
+In Order Traversal: 
+```1 2 3 4 5 6 7 8 9 10 11 13 14 15 16 17 18 19 20```
